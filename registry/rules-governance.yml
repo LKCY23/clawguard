@@ -1,0 +1,39 @@
+---
+id: REGISTRY-RULES-GOVERNANCE
+domain: rules
+pack: rules-governance
+purpose: Route rule system and pack governance questions to the rules-governance pack constraint entrypoint.
+triggers:
+  - rules system
+  - RULES_SYSTEM
+  - pack
+  - rule pack
+  - governance
+  - conflict resolution
+  - deprecate
+  - activate rule
+  - draft rule
+  - on-demand registry
+minimalReadMain:
+  - constraints/rules-governance/00-INDEX.md
+minimalReadShared:
+  - constraints/rules-governance/00-INDEX.md
+escalationReadMain: null
+escalationReadShared: null
+writePolicyMain: allow-with-review
+outputPolicyMain:
+  mode: normal
+outputPolicyShared:
+  mode: quote-limited
+  quoteMaxLines: 30
+redactionCategories:
+  - secrets
+  - tokens
+  - cookies
+  - personal-identifiers
+  - internal-urls
+  - verbatim-quotes
+outputs:
+  - advice
+  - checklist
+  - draft markdown

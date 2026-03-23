@@ -1,0 +1,50 @@
+---
+id: REGISTRY-REPO
+domain: repo
+pack: repo-hygiene
+purpose: Route git/workspace persistence requests to the repo-hygiene pack constraint entrypoint.
+riskLevel: high
+toolSignals:
+  - write
+  - edit
+  - git
+  - commit
+  - push
+triggers:
+  - git
+  - commit
+  - push
+  - branch
+  - merge
+  - rebase
+  - stash
+  - clean
+  - write file
+  - edit file
+  - modify file
+  - workspace
+  - repo hygiene
+minimalReadMain:
+  - constraints/repo-hygiene/00-INDEX.md
+minimalReadShared:
+  - constraints/repo-hygiene/00-INDEX.md
+escalationReadMain: null
+escalationReadShared: null
+writePolicyMain: allow
+outputPolicyMain:
+  mode: normal
+outputPolicyShared:
+  mode: quote-limited
+  quoteMaxLines: 30
+redactionCategories:
+  - secrets
+  - tokens
+  - cookies
+  - personal-identifiers
+  - internal-urls
+  - verbatim-quotes
+outputs:
+  - advice
+  - commands
+  - checklist
+  - patch summary

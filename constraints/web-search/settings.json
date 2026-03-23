@@ -1,0 +1,40 @@
+{
+  "queryStrategy": {
+    "preserveOriginalQuery": true,
+    "enableVariantQueries": true,
+    "enableCrossLanguageVariants": true,
+    "preferOriginalLanguageFirst": true,
+    "enableExactErrorVariants": true,
+    "enableTargetTermVariants": true,
+    "maxQueryVariants": 5,
+    "maxRewriteRounds": 5
+  },
+  "sourceRouting": {
+    "enableAuthoritativeSourceRouting": true,
+    "preferAuthoritativeSourcesWhenIntentIsClear": true,
+    "allowDomainRestriction": true,
+    "allowPathRestriction": false,
+    "allowOpenSearchWhenIntentIsExploratory": true
+  },
+  "qualityGate": {
+    "enabled": true,
+    "topResultsWindow": 3,
+    "detectDuplicateDomains": true,
+    "detectAggregatorPages": true,
+    "detectOffTargetResults": true,
+    "allowEarlyStopWhenAuthoritativeAnswerFound": true
+  },
+  "followupReads": {
+    "enabled": true,
+    "maxReadsPerSearch": 5,
+    "preferHighConfidenceUrls": true,
+    "avoidMechanicalTopNReads": true
+  },
+  "fallback": {
+    "enabled": true,
+    "allowFallbackOnEmptyResults": true,
+    "allowFallbackOnLowQualityResults": true,
+    "allowFallbackOnUnreadableResults": true,
+    "allowFallbackOnWrongSourceType": true
+  }
+}

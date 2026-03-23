@@ -1,0 +1,41 @@
+---
+id: REGISTRY-SKILLS-MANAGEMENT
+domain: skills-management
+pack: skills-management
+purpose: Route skill discovery, installation, update, and removal requests to the skills-management pack constraint entrypoint.
+triggers:
+  - skill
+  - skills
+  - find skill
+  - find-skills
+  - install skill
+  - update skill
+  - remove skill
+  - npx skills
+  - 安装 skill
+  - 技能
+  - 装技能
+  - 更新技能
+minimalReadMain:
+  - constraints/skills-management/00-INDEX.md
+minimalReadShared:
+  - constraints/skills-management/00-INDEX.md
+escalationReadMain: null
+escalationReadShared: null
+writePolicyMain: allow
+outputPolicyMain:
+  mode: normal
+outputPolicyShared:
+  mode: summary-only
+redactionCategories:
+  - secrets
+  - tokens
+  - cookies
+  - personal-identifiers
+  - internal-urls
+  - verbatim-quotes
+outputs:
+  - advice
+  - checklist
+  - commands
+  - draft markdown

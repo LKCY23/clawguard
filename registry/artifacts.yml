@@ -1,0 +1,50 @@
+id: ARTIFACTS
+domain: artifacts
+pack: artifacts
+purpose: Temporary artifacts storage and lifecycle (snapshots, generated outputs, TTL cleanup).
+triggers:
+  - artifacts
+  - snapshot
+  - snapshots
+  - screenshot
+  - screencapture
+  - 截屏
+  - 截图
+  - 清理截图
+  - generated
+  - exports
+  - build outputs
+  - 输出物
+  - 生成物
+  - TTL
+  - retention
+
+minimalReadMain:
+  - constraints/artifacts/00-INDEX.md
+
+minimalReadShared:
+  - constraints/artifacts/00-INDEX.md
+
+escalationReadMain: null
+escalationReadShared: null
+
+writePolicyMain: allow
+
+outputPolicyMain:
+  mode: normal
+
+outputPolicyShared:
+  mode: summary-only
+
+redactionCategories:
+  - secrets
+  - tokens
+  - cookies
+  - personal-identifiers
+  - internal-urls
+  - verbatim-quotes
+
+outputs:
+  - advice
+  - checklist
+  - patch summary

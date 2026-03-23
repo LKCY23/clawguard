@@ -1,0 +1,54 @@
+---
+id: REGISTRY-MESSAGING
+domain: messaging
+pack: messaging
+purpose: Route outbound messaging requests to the messaging pack constraint entrypoint.
+riskLevel: high
+toolSignals:
+  - message.send
+  - message.edit
+  - message.delete
+  - message.react
+  - notify
+triggers:
+  - message
+  - send
+  - reply
+  - dm
+  - direct message
+  - notify
+  - announcement
+  - broadcast
+  - 发消息
+  - 发送
+  - 帮我发
+  - 帮我回
+  - 回复
+  - 私聊
+  - 通知
+  - 飞书
+  - telegram
+minimalReadMain:
+  - constraints/messaging/00-INDEX.md
+minimalReadShared:
+  - constraints/messaging/00-INDEX.md
+escalationReadMain: null
+escalationReadShared: null
+writePolicyMain: allow
+outputPolicyMain:
+  mode: normal
+outputPolicyShared:
+  mode: quote-limited
+  quoteMaxLines: 30
+redactionCategories:
+  - secrets
+  - tokens
+  - cookies
+  - personal-identifiers
+  - internal-urls
+  - verbatim-quotes
+outputs:
+  - advice
+  - checklist
+  - commands
+  - draft markdown

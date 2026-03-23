@@ -1,0 +1,58 @@
+id: REGISTRY-SSH-HOST
+# Intent-routing category for SSH access to the host terminal.
+domain: ssh-host-admin
+pack: ssh-host-admin
+purpose: Route SSH access to the host terminal into a dedicated high-risk pack with explicit authorization, strict scope limits, and stronger reporting.
+
+# Tool signal and intent matches.
+toolSignals:
+  - exec
+  - process
+
+triggers:
+  - ssh 到宿主机
+  - 宿主机终端
+  - host-docker shell
+  - ssh host-docker
+  - 通过 ssh 修改宿主机
+  - ssh 登录宿主机
+  - host shell
+  - ssh into host
+
+minimalReadMain:
+  - constraints/ssh-host-admin/00-INDEX.md
+
+minimalReadShared:
+  - constraints/ssh-host-admin/00-INDEX.md
+
+escalationReadMain:
+  - rules/ssh-host-admin/active/SSHHOST-010-host-target-allowlist.md
+  - rules/ssh-host-admin/active/SSHHOST-020-scope-limited-to-docker-and-service-paths.md
+  - rules/ssh-host-admin/active/SSHHOST-030-no-destructive-host-operations.md
+  - rules/ssh-host-admin/active/SSHHOST-040-host-terminal-requires-explicit-authorization.md
+  - rules/ssh-host-admin/active/SSHHOST-050-preflight-and-command-reporting.md
+
+escalationReadShared: null
+
+writePolicyMain: allow-with-review
+
+outputPolicyMain:
+  mode: normal
+
+outputPolicyShared:
+  mode: summary-only
+
+redactionCategories:
+  - secrets
+  - personal-identifiers
+  - verbatim-quotes
+
+outputs:
+  - advice
+  - commands
+  - patch-summary
+  - checklist
+
+notes:
+  - Host-terminal SSH access is higher-risk than ordinary local exec and should be routed separately.
+  - This entry governs SSH terminal access to the host, not Docker MCP use by itself.

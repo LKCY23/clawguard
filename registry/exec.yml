@@ -1,0 +1,47 @@
+---
+id: REGISTRY-EXEC
+domain: exec
+pack: exec-tool
+purpose: Route execution/tooling requests to the exec-tool pack constraint entrypoint.
+riskLevel: high
+toolSignals:
+  - exec
+  - shell
+  - command
+triggers:
+  - exec
+  - shell
+  - command
+  - run
+  - terminal
+  - pty
+  - background
+  - long-running
+  - process
+  - PATH
+  - command not found
+  - permissions
+minimalReadMain:
+  - constraints/exec-tool/00-INDEX.md
+minimalReadShared:
+  - constraints/exec-tool/00-INDEX.md
+escalationReadMain: null
+escalationReadShared: null
+writePolicyMain: allow
+outputPolicyMain:
+  mode: normal
+outputPolicyShared:
+  mode: quote-limited
+  quoteMaxLines: 30
+redactionCategories:
+  - secrets
+  - tokens
+  - cookies
+  - personal-identifiers
+  - internal-urls
+  - verbatim-quotes
+outputs:
+  - advice
+  - commands
+  - checklist
+  - patch summary

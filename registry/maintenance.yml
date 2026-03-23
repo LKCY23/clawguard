@@ -1,0 +1,44 @@
+id: MAINTENANCE
+domain: maintenance
+pack: maintenance
+purpose: Periodic maintenance checks and reminders (e.g., OpenClaw update checks).
+triggers:
+  - maintenance
+  - update check
+  - updates
+  - 升级
+  - 更新
+  - 检查更新
+  - version
+  - cron update check
+  - OpenClaw update
+
+minimalReadMain:
+  - constraints/maintenance/00-INDEX.md
+
+minimalReadShared:
+  - constraints/maintenance/00-INDEX.md
+
+escalationReadMain: null
+escalationReadShared: null
+
+writePolicyMain: allow
+
+outputPolicyMain:
+  mode: normal
+
+outputPolicyShared:
+  mode: summary-only
+
+redactionCategories:
+  - secrets
+  - tokens
+  - cookies
+  - personal-identifiers
+  - internal-urls
+  - verbatim-quotes
+
+outputs:
+  - advice
+  - checklist
+  - patch summary

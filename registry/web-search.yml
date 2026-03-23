@@ -1,0 +1,44 @@
+---
+id: REGISTRY-WEB-SEARCH
+domain: web-search
+pack: web-search
+purpose: Route web search / research requests to the web-search pack constraint entrypoint.
+triggers:
+  - web search
+  - search
+  - 搜索
+  - 检索
+  - 查一下
+  - 查资料
+  - 找资料
+  - 找链接
+  - 查官网
+  - searxng
+  - google
+  - 用谷歌搜
+  - 用 searxng
+  - 用searxng
+minimalReadMain:
+  - constraints/web-search/00-INDEX.md
+minimalReadShared:
+  - constraints/web-search/00-INDEX.md
+escalationReadMain: null
+escalationReadShared: null
+writePolicyMain: allow
+outputPolicyMain:
+  mode: normal
+outputPolicyShared:
+  mode: quote-limited
+  quoteMaxLines: 30
+redactionCategories:
+  - secrets
+  - tokens
+  - cookies
+  - personal-identifiers
+  - internal-urls
+  - verbatim-quotes
+outputs:
+  - advice
+  - checklist
+  - commands
+  - draft markdown

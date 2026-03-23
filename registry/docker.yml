@@ -1,0 +1,59 @@
+---
+id: REGISTRY-DOCKER
+domain: docker
+pack: docker-control
+purpose: Route Docker control work (local or remote engine via MCP / CLI) to the docker-control pack constraint entrypoint.
+riskLevel: high
+toolSignals:
+  - exec
+  - shell
+  - command
+  - mcporter
+  - docker
+  - container
+  - compose
+  - image
+  - volume
+  - network
+  - docker-engine
+  - docker-daemon
+  - mcp-server-docker
+triggers:
+  - docker
+  - container
+  - compose
+  - image
+  - volume
+  - network
+  - docker engine
+  - docker daemon
+  - mcp-server-docker
+  - searxng deployment
+  - 起容器
+  - 拉镜像
+  - 部署服务
+  - 宿主机 docker
+minimalReadMain:
+  - constraints/docker-control/00-INDEX.md
+minimalReadShared:
+  - constraints/docker-control/00-INDEX.md
+escalationReadMain: null
+escalationReadShared: null
+writePolicyMain: allow
+outputPolicyMain:
+  mode: normal
+outputPolicyShared:
+  mode: quote-limited
+  quoteMaxLines: 30
+redactionCategories:
+  - secrets
+  - tokens
+  - cookies
+  - personal-identifiers
+  - internal-urls
+  - verbatim-quotes
+outputs:
+  - advice
+  - checklist
+  - commands
+  - patch summary
