@@ -44,6 +44,38 @@ Clawguard is responsible for:
 
 ---
 
+## Architecture
+
+Clawguard is layered rather than flat.
+
+Its main layers are:
+
+- `CONSTRAINTS.md` — the conceptual model and taxonomy
+- `CONSTRAINTS_SYSTEM.md` — governance, conflicts, lifecycle, and evolution rules
+- `CONSTRAINTS_RUNTIME.md` — runtime procedure, gates, and receipt discipline
+- `registry/` — intent routing and minimal-read selection
+- `constraints/` — pack entrypoints and runtime-facing loading surfaces
+- `rules/` — authoritative active, draft, and deprecated rules
+
+This layering keeps concept, governance, runtime, routing, and domain rules from collapsing into one document.
+
+---
+
+## How it works
+
+At a high level, Clawguard works like this:
+
+1. a task arrives
+2. the task routes through `registry/` into the relevant domain
+3. the matching pack entrypoint under `constraints/` loads the minimal rule surface
+4. the relevant rule pack under `rules/` provides the authoritative behavior for that domain
+5. runtime gates, receipts, and execution discipline are applied through `CONSTRAINTS_RUNTIME.md`
+6. the task executes under explicit governance rather than ad-hoc judgment
+
+This is what makes Clawguard a real governance system rather than just a pile of rules files.
+
+---
+
 ## Relationship to the wider ecosystem
 
 - **Clawframe** provides the umbrella structure
