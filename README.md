@@ -33,7 +33,7 @@ It is the guard layer of the ecosystem.
 
 ---
 
-## High-level role
+## What it does
 
 Clawguard is responsible for:
 
